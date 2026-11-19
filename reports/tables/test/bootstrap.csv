@@ -1,0 +1,6 @@
+model_family,metric,lower_percentile_2_5,upper_percentile_97_5,valid_resamples,requested_resamples,block_rows,interpretation
+isolation_forest,average_precision,0.12750525181058822,0.29466895228496925,500,500,100,exploratory block bootstrap; independence/coverage not established
+isolation_forest,roc_auc,0.8053883213728523,0.8951402056923616,500,500,100,exploratory block bootstrap; independence/coverage not established
+logistic_regression,average_precision,0.3846147492048274,0.6839898297855892,500,500,100,exploratory block bootstrap; independence/coverage not established
+logistic_regression,roc_auc,0.7896132841086452,0.9315581603382409,500,500,100,exploratory block bootstrap; independence/coverage not established
+LR_minus_IF,average_precision_difference,0.16263140066485704,0.49550645252525083,500,500,100,exploratory block bootstrap; independence/coverage not established

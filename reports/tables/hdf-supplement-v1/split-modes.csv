@@ -1,0 +1,8 @@
+split_id,split,rows,failures,twf,hdf,pwf,osf,rnf
+ordered-gap100-v1,gap,200,3,0,0,1,2,1
+ordered-gap100-v1,test,1900,38,10,0,10,20,0
+ordered-gap100-v1,train,6000,255,26,115,66,60,14
+ordered-gap100-v1,validation,1900,43,10,0,18,16,4
+stratified-seed42-v1,test,2000,68,7,26,15,20,5
+stratified-seed42-v1,train,6000,203,27,67,64,57,11
+stratified-seed42-v1,validation,2000,68,12,22,16,21,3

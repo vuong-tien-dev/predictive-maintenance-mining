@@ -1,0 +1,225 @@
+{
+  "schema_version": "ai4i-v1",
+  "status": "used_by_source_quality_audit",
+  "source_file": "datasets/ai4i/ai4i2020.csv",
+  "csv": {
+    "encoding": "utf-8-sig",
+    "delimiter": ",",
+    "header": true
+  },
+  "grain": "one source operating-state record",
+  "primary_key": [
+    "dataset_version",
+    "reading_id"
+  ],
+  "dataset_version_rule": "sha256:<full SHA-256 of original CSV bytes>",
+  "columns": [
+    {
+      "source_name": "UDI",
+      "name": "reading_id",
+      "dtype": "integer",
+      "role": "identifier",
+      "unit": null,
+      "description": "ID bản ghi; không phải thời gian hoặc mã máy",
+      "nullable": false
+    },
+    {
+      "source_name": "Product ID",
+      "name": "product_id",
+      "dtype": "string",
+      "role": "identifier",
+      "unit": null,
+      "description": "Mã sản phẩm; giữ nguyên để truy vết",
+      "nullable": false
+    },
+    {
+      "source_name": "Type",
+      "name": "product_type",
+      "dtype": "string",
+      "role": "feature",
+      "unit": null,
+      "description": "Loại chất lượng sản phẩm L/M/H; không phải mức độ hỏng",
+      "nullable": false,
+      "allowed_values": [
+        "L",
+        "M",
+        "H"
+      ]
+    },
+    {
+      "source_name": "Air temperature [K]",
+      "name": "air_temperature_k",
+      "dtype": "float",
+      "role": "feature",
+      "unit": "K",
+      "description": "Nhiệt độ không khí xung quanh",
+      "nullable": false
+    },
+    {
+      "source_name": "Process temperature [K]",
+      "name": "process_temperature_k",
+      "dtype": "float",
+      "role": "feature",
+      "unit": "K",
+      "description": "Nhiệt độ quá trình vận hành",
+      "nullable": false
+    },
+    {
+      "source_name": "Rotational speed [rpm]",
+      "name": "rotational_speed_rpm",
+      "dtype": "integer",
+      "role": "feature",
+      "unit": "rpm",
+      "description": "Số vòng quay mỗi phút",
+      "nullable": false
+    },
+    {
+      "source_name": "Torque [Nm]",
+      "name": "torque_nm",
+      "dtype": "float",
+      "role": "feature",
+      "unit": "N m",
+      "description": "Mô-men xoắn: tác dụng làm quay trục",
+      "nullable": false
+    },
+    {
+      "source_name": "Tool wear [min]",
+      "name": "tool_wear_min",
+      "dtype": "integer",
+      "role": "feature",
+      "unit": "min",
+      "description": "Độ mòn dụng cụ biểu diễn bằng phút sử dụng; không phải thời gian tới hỏng",
+      "nullable": false
+    },
+    {
+      "source_name": "Machine failure",
+      "name": "machine_failure",
+      "dtype": "integer",
+      "role": "target",
+      "unit": null,
+      "description": "Nhãn hỏng tổng: 1 hỏng, 0 không hỏng theo dữ liệu",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    {
+      "source_name": "TWF",
+      "name": "twf",
+      "dtype": "integer",
+      "role": "failure_mode",
+      "unit": null,
+      "description": "Tool wear failure: hỏng do mòn dụng cụ",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    {
+      "source_name": "HDF",
+      "name": "hdf",
+      "dtype": "integer",
+      "role": "failure_mode",
+      "unit": null,
+      "description": "Heat dissipation failure: hỏng do tản nhiệt",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    {
+      "source_name": "PWF",
+      "name": "pwf",
+      "dtype": "integer",
+      "role": "failure_mode",
+      "unit": null,
+      "description": "Power failure: hỏng liên quan công suất",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    {
+      "source_name": "OSF",
+      "name": "osf",
+      "dtype": "integer",
+      "role": "failure_mode",
+      "unit": null,
+      "description": "Overstrain failure: hỏng do quá tải",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    },
+    {
+      "source_name": "RNF",
+      "name": "rnf",
+      "dtype": "integer",
+      "role": "failure_mode",
+      "unit": null,
+      "description": "Random failure: hỏng ngẫu nhiên",
+      "nullable": false,
+      "allowed_values": [
+        0,
+        1
+      ]
+    }
+  ],
+  "feature_columns": [
+    "product_type",
+    "air_temperature_k",
+    "process_temperature_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min"
+  ],
+  "label_columns": [
+    "machine_failure",
+    "twf",
+    "hdf",
+    "pwf",
+    "osf",
+    "rnf"
+  ],
+  "required_for_scoring": [
+    "product_type",
+    "air_temperature_k",
+    "process_temperature_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min"
+  ],
+  "derived_features": [
+    {
+      "name": "temperature_difference_k",
+      "dtype": "float",
+      "unit": "K",
+      "formula": "process_temperature_k - air_temperature_k"
+    },
+    {
+      "name": "power_w",
+      "dtype": "float",
+      "unit": "W",
+      "formula": "torque_nm * rotational_speed_rpm * 2 * pi / 60"
+    },
+    {
+      "name": "wear_torque_min_nm",
+      "dtype": "float",
+      "unit": "min N m",
+      "formula": "tool_wear_min * torque_nm"
+    }
+  ],
+  "policies": {
+    "raw_columns": "All 14 source columns required for the reference training/evaluation import; match by name, reject missing/unknown/duplicate headers. Preserve raw file unchanged.",
+    "scoring": "Require six features, not labels. Record identity and version are required for persisted batch outputs. Scoring API/adapter is not implemented.",
+    "invalid_values": "Report errors; do not silently fill, drop, coerce or repair labels. Missing, non-finite numeric values and invalid categorical/binary values require explicit handling before use.",
+    "observed_ranges": "Descriptive only; not rejection thresholds.",
+    "label_consistency": "Keep original target and all failure modes; flag disagreements and overlapping modes for analysis.",
+    "external_datasets": "No automatic compatibility claim; eligibility and physical equivalence need a separate decision."
+  }
+}

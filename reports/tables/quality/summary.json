@@ -1,0 +1,17 @@
+{
+  "rows": 10000,
+  "columns": 14,
+  "dataset_version": "sha256:dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "schema_version": "ai4i-v1",
+  "missing_cells": 0,
+  "duplicate_reading_id": 0,
+  "duplicate_full_row": 0,
+  "duplicate_feature_rows": 0,
+  "target_positive": 339,
+  "target_rate": 0.0339,
+  "failure_without_mode": 9,
+  "mode_without_failure": 18,
+  "multiple_modes": 24,
+  "scope": "full-source descriptive audit; no split or model selection",
+  "source_sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e"
+}

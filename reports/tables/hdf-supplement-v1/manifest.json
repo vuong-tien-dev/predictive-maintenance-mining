@@ -1,0 +1,56 @@
+{
+  "scope": "post-hoc mode coverage, no model fit/scoring or selection",
+  "source_sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "evaluation_lock_digest": "236751660b9bf0791d53a00983a0208005b0577900a52ad1ae608ece2287ebbb",
+  "score_inputs": [
+    {
+      "path": "artifacts/scores/ordered-gap100-v1__isolation_forest__s42__a42bffd478__150790.csv",
+      "sha256": "af35bcff42b33636c3cbdb995e3b3a16e279889d7ecf9a049877a2709b4f1cbf"
+    },
+    {
+      "path": "artifacts/scores/test/ordered-gap100-v1__isolation_forest__s42__a42bffd478__150790.csv",
+      "sha256": "98ee1fb1b5b46e53664dfb87b8b5966b51e2a0f4a70a29e9fe54695b9b10252f"
+    },
+    {
+      "path": "artifacts/scores/ordered-gap100-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "sha256": "5083ef71999d6bba85cdb7ffea5bad3cf0359b22bfc3b53c9ab68d59192091b8"
+    },
+    {
+      "path": "artifacts/scores/test/ordered-gap100-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "sha256": "bd4f2494c6ddae3e788d3130026d9247a43973b5ed0886c59f90e9d9046f509d"
+    },
+    {
+      "path": "artifacts/scores/stratified-seed42-v1__isolation_forest__s42__a42bffd478__150790.csv",
+      "sha256": "016d79e28f760a165185eaeece64b78823d88838cf2c29d33a43e481c11a76fd"
+    },
+    {
+      "path": "artifacts/scores/test/stratified-seed42-v1__isolation_forest__s42__a42bffd478__150790.csv",
+      "sha256": "dbdaffaa0506886752ce6aa8f5523342c8c30f209ba16b7bb7984cfbd3802673"
+    },
+    {
+      "path": "artifacts/scores/stratified-seed42-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "sha256": "d9c340061903fdb2b5de9317c1c556e5afee280b6bf216bf42eabcd6ac076711"
+    },
+    {
+      "path": "artifacts/scores/test/stratified-seed42-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "sha256": "6d76d67da5ac27d2fc864566af3cf3e60d867145d9c9a58a7de91505b5cccf58"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "reports/tables/hdf-supplement-v1/blocks.csv",
+      "rows": 10,
+      "sha256": "0dc99c3754f248b1841a8bd43421b3217fd25115a55fe4baa85b730a0ec0d290"
+    },
+    {
+      "path": "reports/tables/hdf-supplement-v1/split-modes.csv",
+      "rows": 7,
+      "sha256": "d7480797aa8174f77e17ba00741ca7995323a44dbb20a42072bd16de13d220cf"
+    },
+    {
+      "path": "reports/tables/hdf-supplement-v1/hdf-coverage.csv",
+      "rows": 32,
+      "sha256": "37e482be154707e275344664a732d46b8849842a19433f3f79a8a2ab85755d61"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "version": "ai4i-splits-v1",
+  "primary": "ordered-gap100-v1",
+  "seed": 42,
+  "config_sha256": "ad0429fc1e74c2c69844b182b58bc07cfa41d2fa377e107de02adb46dd113f35",
+  "config_hash_format": "JSON sort_keys=True, separators=(',', ':'), UTF-8",
+  "dataset_version": "sha256:dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "sklearn_version": "1.9.1",
+  "model_fitted": false,
+  "files": [
+    {
+      "split_id": "ordered-gap100-v1",
+      "method": "source_order",
+      "gap_rows": 100,
+      "path": "data/processed/splits/ordered-gap100-v1.csv",
+      "sha256": "ef5c2f584e8592bf0ee2aa30f16a1bb995b33bcde77cefe731f73677c67d0965",
+      "rows": 10000
+    },
+    {
+      "split_id": "stratified-seed42-v1",
+      "method": "stratified_random",
+      "gap_rows": 0,
+      "path": "data/processed/splits/stratified-seed42-v1.csv",
+      "sha256": "755eb3f9f4b933e501f5376aa52b20b97979f8f0b4e94e539564712e351988e4",
+      "rows": 10000
+    }
+  ]
+}

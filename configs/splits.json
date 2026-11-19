@@ -1,0 +1,10 @@
+{
+  "version": "ai4i-splits-v1",
+  "primary": "ordered-gap100-v1",
+  "ratios": [0.6, 0.2, 0.2],
+  "seed": 42,
+  "protocols": [
+    {"split_id": "ordered-gap100-v1", "method": "source_order", "gap_rows": 100},
+    {"split_id": "stratified-seed42-v1", "method": "stratified_random", "gap_rows": 0}
+  ]
+}

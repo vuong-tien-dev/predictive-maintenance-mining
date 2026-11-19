@@ -1,0 +1,14 @@
+{
+  "version": "isolation-validation-v1",
+  "selection_seed": 42,
+  "repeat_seeds": [42, 43, 44],
+  "feature_sets": ["base", "physical"],
+  "max_samples": [256, 1024],
+  "n_estimators": 200,
+  "contamination": "auto",
+  "scale_numeric": false,
+  "selection": "validation average_precision descending, precision_at_50 descending, candidate_id ascending",
+  "threshold": "validation maximum F1; tied F1 uses larger threshold; alert when score >= threshold",
+  "budgets": [20, 50, 100],
+  "test_access": false
+}

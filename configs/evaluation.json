@@ -1,0 +1,11 @@
+{
+  "version": "final-evaluation-v1",
+  "budgets": [20, 50, 100],
+  "primary_seed": 42,
+  "bootstrap_seed": 42,
+  "bootstrap_repeats": 500,
+  "bootstrap_block_rows": 100,
+  "bootstrap_scope": "primary test, seed42 IF and LR; paired nonoverlapping-block resampling, AP/ROC only",
+  "refit_models": false,
+  "retune_thresholds": false
+}

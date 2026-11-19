@@ -1,0 +1,43 @@
+.venv/
+.tmp/
+__pycache__/
+.ipynb_checkpoints/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.egg-info/
+
+# Dữ liệu và kết quả được tạo lại bằng pipeline.
+/data/raw/*
+!/data/raw/.gitkeep
+/data/interim/*
+!/data/interim/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/artifacts/models/*
+!/artifacts/models/.gitkeep
+/artifacts/scores/*
+!/artifacts/scores/.gitkeep
+/artifacts/metrics/*
+!/artifacts/metrics/.gitkeep
+
+# Không đưa kho local, token và log runtime vào mã nguồn.
+/infra/volumes/
+*.log
+
+# Hồ sơ điều phối cục bộ.
+/.dev/
+/.tasks/
+/.agent/
+/AGENTS.md
+
+# Hai bộ dữ liệu tham khảo được tải local; chỉ commit tài liệu/metadata.
+/datasets/ai4i/
+/datasets/cmapss/
+/datasets/*.part
+
+# Ngữ cảnh điều phối riêng của máy hiện tại, không đẩy lên Git.
+/.local-context/

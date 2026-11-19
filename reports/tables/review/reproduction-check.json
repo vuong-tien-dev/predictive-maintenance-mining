@@ -1,0 +1,53 @@
+{
+  "source_commit": "3a9d9e7",
+  "date": "2026-11-16",
+  "command": "D:/data-mining/final-project-16/.venv/Scripts/python.exe scripts/reproduce.py",
+  "environment": "separate checkout; same installed Python environment; official CSV copied locally and verified by runner",
+  "exit_code": 0,
+  "baseline_tests": 34,
+  "files": [
+    {
+      "table": "readings",
+      "matches": true,
+      "sha256": "b32d44590239e9ae625c13a56ba4f8f2514d779e0f1be0512c3a99a24fed744e"
+    },
+    {
+      "table": "features",
+      "matches": true,
+      "sha256": "8a92f01f5156284991f1bbb06fbd2880ca7f77a4de86b7fdc1b0b5b6a632533d"
+    },
+    {
+      "table": "quality_flags",
+      "matches": true,
+      "sha256": "897ae0de7af67080b8cd7f724e70c1693547c3f636c8bcca7e318864b352bc86"
+    },
+    {
+      "table": "split_membership",
+      "matches": true,
+      "sha256": "11f6ea95126d0309c68492379925c1df7d7d3c2ae454915fc3c701e2e43a479f"
+    },
+    {
+      "table": "model_runs",
+      "matches": true,
+      "sha256": "4fa648e396ae19d0d7afa40e02a38a632ad5df9a0a94a17cbe376027afac64a2"
+    },
+    {
+      "table": "scores",
+      "matches": true,
+      "sha256": "91529df9dd9c4022bfdc1c2222ae498c0b992071d0a6191df2338db0939a9580"
+    },
+    {
+      "table": "metrics",
+      "matches": true,
+      "sha256": "df08a9b62b83e7874acb0f2f5b6f33be7eee49fcd57242a6619fd57ec41ad552"
+    },
+    {
+      "table": "budget_metrics",
+      "matches": true,
+      "sha256": "e063ba8606760cceefb4071bd0d3c8d90e3e483d378a7bd7d2c53ecbfb44c9f9"
+    }
+  ],
+  "all_eight_hashes_match": true,
+  "network_download_exercised": false,
+  "fresh_os_or_dependency_install": false
+}

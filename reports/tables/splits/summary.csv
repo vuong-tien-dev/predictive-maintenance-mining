@@ -1,0 +1,8 @@
+split_id,split,rows,failures,min_source_position,max_source_position,failure_rate
+ordered-gap100-v1,gap,200,3,6001,8100,0.015
+ordered-gap100-v1,test,1900,38,8101,10000,0.02
+ordered-gap100-v1,train,6000,255,1,6000,0.0425
+ordered-gap100-v1,validation,1900,43,6101,8000,0.022631578947368423
+stratified-seed42-v1,test,2000,68,2,9985,0.034
+stratified-seed42-v1,train,6000,203,1,10000,0.03383333333333333
+stratified-seed42-v1,validation,2000,68,5,9998,0.034

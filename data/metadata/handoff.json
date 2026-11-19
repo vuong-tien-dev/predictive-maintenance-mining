@@ -1,0 +1,535 @@
+{
+  "version": "handoff-v1",
+  "dataset_version": "sha256:dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "evaluation_lock_digest": "236751660b9bf0791d53a00983a0208005b0577900a52ad1ae608ece2287ebbb",
+  "primary_split_id": "ordered-gap100-v1",
+  "primary_seed": 42,
+  "budgets": [
+    20,
+    50,
+    100
+  ],
+  "files": [
+    {
+      "table": "readings",
+      "path": "data/processed/handoff-v1/readings.csv",
+      "rows": 10000,
+      "primary_key": [
+        "dataset_version",
+        "reading_id"
+      ],
+      "sha256": "b32d44590239e9ae625c13a56ba4f8f2514d779e0f1be0512c3a99a24fed744e",
+      "columns": [
+        {
+          "name": "dataset_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "schema_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "reading_id",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "product_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "product_type",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "air_temperature_k",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "process_temperature_k",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "rotational_speed_rpm",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "torque_nm",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "tool_wear_min",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "machine_failure",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "twf",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "hdf",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "pwf",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "osf",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "rnf",
+          "pandas_dtype": "int64",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "features",
+      "path": "data/processed/handoff-v1/features.csv",
+      "rows": 10000,
+      "primary_key": [
+        "dataset_version",
+        "reading_id"
+      ],
+      "sha256": "8a92f01f5156284991f1bbb06fbd2880ca7f77a4de86b7fdc1b0b5b6a632533d",
+      "columns": [
+        {
+          "name": "dataset_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "reading_id",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "product_type",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "air_temperature_k",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "process_temperature_k",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "rotational_speed_rpm",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "torque_nm",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "tool_wear_min",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "temperature_difference_k",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "power_w",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "wear_torque_min_nm",
+          "pandas_dtype": "float64",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "quality_flags",
+      "path": "data/processed/handoff-v1/quality_flags.csv",
+      "rows": 10000,
+      "primary_key": [
+        "dataset_version",
+        "reading_id"
+      ],
+      "sha256": "897ae0de7af67080b8cd7f724e70c1693547c3f636c8bcca7e318864b352bc86",
+      "columns": [
+        {
+          "name": "dataset_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "reading_id",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "failure_without_mode",
+          "pandas_dtype": "boolean",
+          "nullable": false
+        },
+        {
+          "name": "mode_without_failure",
+          "pandas_dtype": "boolean",
+          "nullable": false
+        },
+        {
+          "name": "multiple_modes",
+          "pandas_dtype": "boolean",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "split_membership",
+      "path": "data/processed/handoff-v1/split_membership.csv",
+      "rows": 20000,
+      "primary_key": [
+        "split_id",
+        "dataset_version",
+        "reading_id"
+      ],
+      "sha256": "11f6ea95126d0309c68492379925c1df7d7d3c2ae454915fc3c701e2e43a479f",
+      "columns": [
+        {
+          "name": "dataset_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "reading_id",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "split_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "source_position",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "split",
+          "pandas_dtype": "str",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "model_runs",
+      "path": "data/processed/handoff-v1/model_runs.csv",
+      "rows": 20,
+      "primary_key": [
+        "model_run_id"
+      ],
+      "sha256": "4fa648e396ae19d0d7afa40e02a38a632ad5df9a0a94a17cbe376027afac64a2",
+      "columns": [
+        {
+          "name": "model_run_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "model_family",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "feature_set",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "seed",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "threshold",
+          "pandas_dtype": "float64",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "scores",
+      "path": "data/processed/handoff-v1/scores.csv",
+      "rows": 78000,
+      "primary_key": [
+        "model_run_id",
+        "split",
+        "dataset_version",
+        "reading_id"
+      ],
+      "sha256": "91529df9dd9c4022bfdc1c2222ae498c0b992071d0a6191df2338db0939a9580",
+      "columns": [
+        {
+          "name": "dataset_version",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "reading_id",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "model_run_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "model_family",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "feature_set",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "priority_score",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "predicted_failure",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "priority_rank",
+          "pandas_dtype": "int64",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "metrics",
+      "path": "data/processed/handoff-v1/metrics.csv",
+      "rows": 40,
+      "primary_key": [
+        "model_run_id",
+        "split",
+        "population_scope"
+      ],
+      "sha256": "df08a9b62b83e7874acb0f2f5b6f33be7eee49fcd57242a6619fd57ec41ad552",
+      "columns": [
+        {
+          "name": "model_run_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "population_scope",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "model_family",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "seed",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "n_samples",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "n_failures",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "threshold",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "tp",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "fp",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "fn",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "tn",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "precision",
+          "pandas_dtype": "float64",
+          "nullable": true
+        },
+        {
+          "name": "recall",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "f1",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "precision_defined",
+          "pandas_dtype": "bool",
+          "nullable": false
+        },
+        {
+          "name": "recall_defined",
+          "pandas_dtype": "bool",
+          "nullable": false
+        },
+        {
+          "name": "f1_defined",
+          "pandas_dtype": "bool",
+          "nullable": false
+        },
+        {
+          "name": "roc_auc",
+          "pandas_dtype": "float64",
+          "nullable": false
+        },
+        {
+          "name": "average_precision",
+          "pandas_dtype": "float64",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "table": "budget_metrics",
+      "path": "data/processed/handoff-v1/budget_metrics.csv",
+      "rows": 120,
+      "primary_key": [
+        "model_run_id",
+        "split",
+        "population_scope",
+        "budget_k"
+      ],
+      "sha256": "e063ba8606760cceefb4071bd0d3c8d90e3e483d378a7bd7d2c53ecbfb44c9f9",
+      "columns": [
+        {
+          "name": "model_run_id",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "split",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "population_scope",
+          "pandas_dtype": "str",
+          "nullable": false
+        },
+        {
+          "name": "budget_k",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "n_samples",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "n_failures",
+          "pandas_dtype": "int64",
+          "nullable": false
+        },
+        {
+          "name": "topk_applicable",
+          "pandas_dtype": "bool",
+          "nullable": false
+        },
+        {
+          "name": "tp",
+          "pandas_dtype": "float64",
+          "nullable": true
+        },
+        {
+          "name": "precision",
+          "pandas_dtype": "float64",
+          "nullable": true
+        },
+        {
+          "name": "recall",
+          "pandas_dtype": "float64",
+          "nullable": true
+        }
+      ]
+    }
+  ]
+}

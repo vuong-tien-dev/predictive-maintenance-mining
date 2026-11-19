@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "post-hoc independent recomputation; no fitting or selection",
+  "package_tables": 8,
+  "metric_groups": 40,
+  "budget_groups": 120,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.8",
+  "pandas": "3.1.0",
+  "numpy": "2.5.4",
+  "scikit_learn": "1.9.1",
+  "audit_source_sha256": "e77e9667c77150dc47a1f62940b6e4a4f2f042092f79df543c45cf0507883a76",
+  "handoff_manifest_sha256": "e330e97e0e66e91622d2582d5dbdb191e84fa2559f6088b37c8ce360c61bf951",
+  "evaluation_lock_sha256": "6f07b9cadcda87350d116b5e8fd878a81e2374298bab2f56b32c73349bc8ce9a",
+  "outputs": {
+    "budgets.csv": "617ef2fd8a8ca86c6ba3436ea12c7b97b5b45d9c4368dd04f411e50ea7faa9e8",
+    "group-errors.csv": "9aefc055cdca13e9711b5579ace5846f5c9b309fa78dd0808736416ed1d1d802",
+    "metrics.csv": "bc8608a5826c9fe8abe9eb96f52b6194ddcd4167258054416d5fac9b7888643c",
+    "package-checks.csv": "cdbadb66ac61096c97130216ebf8d9a6d93e5a5b53aece0166535ae64d319f5f",
+    "validation-feature-comparison.csv": "212320e97ee213c83729c480ebc2ff1fc0c94a7867653826dfc5d248aaac27b3"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "experiment_version": "logistic-validation-v1",
+  "config_sha256": "8498f2a02e2c2e27bacd2d400ecafdde6593b0ae9b8f372fae1c7629d44cb990",
+  "source_hashes_lf_normalized": {
+    "classification": "17de5e7377f2ca357482ba99a48b00d26978ef7f85b4248f396519cae5db9bc6",
+    "features": "682ae0485bc4fb4e0df5e987e217e8ec1403f2ebbd6596b5e533bacda05ab826",
+    "evaluation": "5dad33eb9eb314101eb7251718060dcedd34d4f5aad015f5170b431e0c763b38",
+    "splits": "3f967fdedb17db588bc20856a7f02655f1ca59742a71d3cce88b2ab8315da357",
+    "preprocessing": "9d7875b24c502429ce88a6ba349a1ec0d2f463607d830598e355c4bd8e30c440",
+    "quality": "1d058f6d1045991c90ab33e4a88f1b30e6d23d659ac2fc13048667f79677ed5c"
+  },
+  "code_digest": "836aec33cc70324f9028929f4953c6369fb7452861caed7b081d5fcaf2951dad",
+  "dataset_version": "sha256:dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "split_manifest_digest": "f7e8e8b683d7736dcaeabaf7296ea0e5833fe54e0d165cd0a1f40d0345c18132",
+  "isolation_selection_digest": "a60dad8c41545e0ab717411d9929c995722454e552c191677aabfd47542599b5",
+  "sklearn_version": "1.9.1",
+  "fit_uses_labels": true,
+  "selection_uses_validation_labels": true,
+  "scaler_fit_partition": "train",
+  "test_evaluated": false,
+  "selections": [
+    {
+      "split_id": "ordered-gap100-v1",
+      "model_run_id": "ordered-gap100-v1__logistic_regression__s42__8498f2a02e__836aec",
+      "candidate_id": "lr-base-C0.01-none",
+      "feature_set": "base",
+      "C": 0.01,
+      "class_weight": "none",
+      "seed": 42,
+      "threshold": 0.14391614297042812,
+      "n_iter": 11,
+      "score_path": "artifacts/scores/ordered-gap100-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "score_sha256": "5083ef71999d6bba85cdb7ffea5bad3cf0359b22bfc3b53c9ab68d59192091b8",
+      "model_path": "artifacts/models/ordered-gap100-v1__logistic_regression__s42__8498f2a02e__836aec.joblib",
+      "model_sha256": "ee5597d6ce545a48008e11936c8fbf56cf2001ef0f607498e954ddcffcee724d"
+    },
+    {
+      "split_id": "stratified-seed42-v1",
+      "model_run_id": "stratified-seed42-v1__logistic_regression__s42__8498f2a02e__836aec",
+      "candidate_id": "lr-physical-C1-none",
+      "feature_set": "physical",
+      "C": 1.0,
+      "class_weight": "none",
+      "seed": 42,
+      "threshold": 0.3030976135259637,
+      "n_iter": 38,
+      "score_path": "artifacts/scores/stratified-seed42-v1__logistic_regression__s42__8498f2a02e__836aec.csv",
+      "score_sha256": "d9c340061903fdb2b5de9317c1c556e5afee280b6bf216bf42eabcd6ac076711",
+      "model_path": "artifacts/models/stratified-seed42-v1__logistic_regression__s42__8498f2a02e__836aec.joblib",
+      "model_sha256": "f777271876634205ed66e898b0314f4faf7a98fffce0f81bcf3194895be14c47"
+    }
+  ]
+}

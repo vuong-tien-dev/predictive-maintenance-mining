@@ -1,0 +1,82 @@
+erDiagram
+    dim_product_type ||--o{ fact_reading : "categorizes"
+    dim_dataset_version ||--o{ fact_reading : "tracks"
+    dim_failure_pattern ||--o{ fact_reading : "describes failure"
+    fact_reading ||--o{ fact_model_score : "evaluated on"
+    dim_model_run ||--o{ fact_model_score : "generates score"
+    dim_model_run ||--o{ agg_budget_metrics : "measured at"
+
+    dim_product_type {
+        varchar product_type PK "L, M, H"
+        varchar description "Loại sản phẩm (Low, Medium, High variant)"
+        varchar quality_tier "Phân hạng chất lượng kỹ thuật"
+    }
+
+    dim_dataset_version {
+        varchar dataset_version PK "Mã băm SHA-256 của file nguồn"
+        varchar schema_version "Phiên bản schema ai4i-v1"
+        varchar source_url "URL nguồn dữ liệu UCI"
+        varchar checksum_sha256 "SHA-256 file nguồn"
+    }
+
+    dim_failure_pattern {
+        varchar failure_pattern_key PK "Mã tổ hợp nhãn hỏng (vd: NONE, TWF, MULTI_TWF_PWF)"
+        int machine_failure "Nhãn tổng (0 hoặc 1)"
+        int twf "Tool wear failure"
+        int hdf "Heat dissipation failure"
+        int pwf "Power failure"
+        int osf "Overstrain failure"
+        int rnf "Random failure"
+        varchar pattern_label "Tên nhãn mô tả"
+        boolean is_multilabel "Cờ đa nhãn đồng thời"
+    }
+
+    dim_model_run {
+        varchar model_run_id PK "Mã định danh lần chạy mô hình"
+        varchar model_family "Họ mô hình (isolation_forest, logistic_regression,...)"
+        varchar feature_set "Bộ đặc trưng (base, physical, none)"
+        varchar split_id "Giao thức chia tập (ordered-gap100-v1, stratified-seed42-v1)"
+        int seed "Seed ngẫu nhiên"
+        float threshold "Ngưỡng phân lớp tối ưu từ validation"
+    }
+
+    fact_reading {
+        int reading_id PK "Mã quan sát (từ UDI 1-10000)"
+        varchar dataset_version FK "Khóa ngoại phiên bản"
+        varchar product_id "Mã lô sản phẩm (L47181,...)"
+        varchar product_type FK "Khóa ngoại loại sản phẩm"
+        varchar failure_pattern_key FK "Khóa ngoại tổ hợp nhãn"
+        float air_temperature_k "Nhiệt độ không khí [K]"
+        float process_temperature_k "Nhiệt độ quá trình [K]"
+        int rotational_speed_rpm "Tốc độ quay [rpm]"
+        float torque_nm "Mô-men xoắn [Nm]"
+        int tool_wear_min "Thời gian mòn dụng cụ [min]"
+        float temperature_difference_k "Chênh lệch nhiệt độ vật lý [K]"
+        float power_w "Công suất cơ học vật lý [W]"
+        float wear_torque_min_nm "Tương tác mòn x mô-men [min*Nm]"
+        boolean is_suspect "Cờ nghi ngờ dữ liệu"
+    }
+
+    fact_model_score {
+        varchar model_run_id FK "Khóa ngoại lần chạy mô hình"
+        int reading_id FK "Khóa ngoại quan sát cảm biến"
+        varchar split_id "Giao thức split"
+        varchar partition "Tập phân hoạch (validation, test)"
+        float priority_score "Điểm bất thường / ưu tiên kiểm tra"
+        int priority_rank "Thứ hạng ưu tiên (1 đến N)"
+        int predicted_failure "Nhãn dự đoán nhị phân tại ngưỡng đã khóa"
+    }
+
+    agg_budget_metrics {
+        varchar model_run_id FK "Khóa ngoại lần chạy mô hình"
+        varchar split "Tập phân hoạch (validation, test)"
+        varchar population_scope "all"
+        int budget_k "Ngân sách kiểm tra (20, 50, 100)"
+        int n_samples "Tổng số mẫu trong tập"
+        int n_failures "Số ca hỏng thực tế trong tập"
+        boolean topk_applicable "Có áp dụng top-k hay không"
+        int tp "Số ca hỏng phát hiện đúng"
+        float precision "Precision@k"
+        float recall "Recall@k"
+    }
+

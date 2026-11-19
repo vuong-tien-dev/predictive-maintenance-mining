@@ -1,0 +1,16 @@
+{
+  "version": "logistic-validation-v1",
+  "seed": 42,
+  "feature_sets": ["base", "physical"],
+  "C_values": [0.01, 0.1, 1.0, 10.0],
+  "class_weights": [null, "balanced"],
+  "solver": "lbfgs",
+  "l1_ratio": 0.0,
+  "max_iter": 2000,
+  "tol": 0.0001,
+  "scale_numeric": true,
+  "selection": "validation average_precision descending, precision_at_50 descending, candidate_id ascending",
+  "threshold": "validation maximum F1; tied F1 uses larger threshold; alert when score >= threshold",
+  "budgets": [20, 50, 100],
+  "test_access": false
+}

@@ -1,0 +1,98 @@
+{
+  "preprocessing_version": "ai4i-preprocessing-v1",
+  "schema_version": "ai4i-v1",
+  "dataset_version": "sha256:dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "source_sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "rows_in": 10000,
+  "rows_out": 10000,
+  "rows_removed": 0,
+  "labels_changed": 0,
+  "scaler_fitted": false,
+  "split_created": false,
+  "label_flags": {
+    "failure_without_mode": 9,
+    "mode_without_failure": 18,
+    "multiple_modes": 24
+  },
+  "feature_columns": [
+    "product_type",
+    "air_temperature_k",
+    "process_temperature_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temperature_difference_k",
+    "power_w",
+    "wear_torque_min_nm"
+  ],
+  "files": [
+    {
+      "path": "data/interim/ai4i-readings.csv",
+      "rows": 10000,
+      "columns": [
+        "dataset_version",
+        "schema_version",
+        "reading_id",
+        "product_id",
+        "product_type",
+        "air_temperature_k",
+        "process_temperature_k",
+        "rotational_speed_rpm",
+        "torque_nm",
+        "tool_wear_min",
+        "machine_failure",
+        "twf",
+        "hdf",
+        "pwf",
+        "osf",
+        "rnf"
+      ],
+      "sha256": "b32d44590239e9ae625c13a56ba4f8f2514d779e0f1be0512c3a99a24fed744e"
+    },
+    {
+      "path": "data/processed/ai4i-features.csv",
+      "rows": 10000,
+      "columns": [
+        "dataset_version",
+        "reading_id",
+        "product_type",
+        "air_temperature_k",
+        "process_temperature_k",
+        "rotational_speed_rpm",
+        "torque_nm",
+        "tool_wear_min",
+        "temperature_difference_k",
+        "power_w",
+        "wear_torque_min_nm"
+      ],
+      "sha256": "8a92f01f5156284991f1bbb06fbd2880ca7f77a4de86b7fdc1b0b5b6a632533d"
+    },
+    {
+      "path": "data/processed/ai4i-labels.csv",
+      "rows": 10000,
+      "columns": [
+        "dataset_version",
+        "reading_id",
+        "machine_failure",
+        "twf",
+        "hdf",
+        "pwf",
+        "osf",
+        "rnf"
+      ],
+      "sha256": "f6c46bc1b70b87528a42d701885eb646a703b7ff1f7f5941f441bf1eb7353f0b"
+    },
+    {
+      "path": "data/processed/ai4i-quality_flags.csv",
+      "rows": 10000,
+      "columns": [
+        "dataset_version",
+        "reading_id",
+        "failure_without_mode",
+        "mode_without_failure",
+        "multiple_modes"
+      ],
+      "sha256": "897ae0de7af67080b8cd7f724e70c1693547c3f636c8bcca7e318864b352bc86"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+model_family,split_id,feature_set,candidate_id,validation_ap,validation_precision_at_50
+isolation_forest,ordered-gap100-v1,base,if-base-m1024,0.1615262893058496,0.14
+isolation_forest,ordered-gap100-v1,physical,if-physical-m1024,0.32024659270356237,0.3
+isolation_forest,stratified-seed42-v1,base,if-base-m1024,0.1406475485381834,0.18
+isolation_forest,stratified-seed42-v1,physical,if-physical-m1024,0.2584978180885214,0.4
+logistic_regression,ordered-gap100-v1,base,lr-base-C0.01-none,0.5011114934932236,0.5
+logistic_regression,ordered-gap100-v1,physical,lr-physical-C0.1-none,0.3991993865402462,0.36
+logistic_regression,stratified-seed42-v1,base,lr-base-C10-none,0.432097361648614,0.5
+logistic_regression,stratified-seed42-v1,physical,lr-physical-C1-none,0.463413630092971,0.52

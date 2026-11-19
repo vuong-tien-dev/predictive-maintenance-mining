@@ -1,0 +1,74 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pm_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-maintenance_dw}
+      ADDITIONAL_POSTGRES_DBS: superset_metadata
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init-multiple-dbs.sh:/docker-entrypoint-initdb.d/init-multiple-dbs.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-maintenance_dw}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+
+  superset:
+    image: apache/superset:4.0.2
+    container_name: pm_superset
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:-maintenance_predictive_superset_secret_key_2026}
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/superset_metadata
+      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+      SUPERSET_ENV: production
+    ports:
+      - "${SUPERSET_PORT:-8088}:8088"
+    volumes:
+      - superset_home:/app/superset_home
+      - ./superset/superset_config.py:/app/pythonpath/superset_config.py:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  superset-init:
+    image: apache/superset:4.0.2
+    container_name: pm_superset_init
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY:-maintenance_predictive_superset_secret_key_2026}
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/superset_metadata
+      SUPERSET_CONFIG_PATH: /app/pythonpath/superset_config.py
+      ADMIN_USERNAME: ${ADMIN_USERNAME:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin123}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@predictive-maintenance.local}
+    volumes:
+      - superset_home:/app/superset_home
+      - ./superset/superset_config.py:/app/pythonpath/superset_config.py:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        echo "Running database migrations..."
+        superset db upgrade
+        echo "Creating admin user if not exists..."
+        superset fab create-admin --username "$$ADMIN_USERNAME" --firstname Admin --lastname User --email "$$ADMIN_EMAIL" --password "$$ADMIN_PASSWORD" || true
+        echo "Initializing Superset default roles..."
+        superset init
+        echo "Superset initialization complete."
+    restart: "no"
+
+volumes:
+  postgres_data:
+    name: pm_postgres_data
+  superset_home:
+    name: pm_superset_home

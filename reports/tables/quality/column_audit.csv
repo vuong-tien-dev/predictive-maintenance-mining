@@ -1,0 +1,15 @@
+column,role,missing,invalid_type,invalid_domain,unique_nonmissing
+reading_id,identifier,0,0,0,10000
+product_id,identifier,0,0,0,10000
+product_type,feature,0,0,0,3
+air_temperature_k,feature,0,0,0,93
+process_temperature_k,feature,0,0,0,82
+rotational_speed_rpm,feature,0,0,0,941
+torque_nm,feature,0,0,0,577
+tool_wear_min,feature,0,0,0,246
+machine_failure,target,0,0,0,2
+twf,failure_mode,0,0,0,2
+hdf,failure_mode,0,0,0,2
+pwf,failure_mode,0,0,0,2
+osf,failure_mode,0,0,0,2
+rnf,failure_mode,0,0,0,2
